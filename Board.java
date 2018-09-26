@@ -22,17 +22,20 @@ public class Board {
 	}
 	public void putFigure (Shape one, int i) {
 		
-		if (i < board.length && board[i] == null) {
+		if (i > 0 && i < board.length && board[i] == null) {
 			board[i] = one;
 		}else {
 			System.out.println("There is no space to put this figure on board");
 		}
 	}
 	public void deleteFigure (Shape one, int i) {
-		if (i < board.length && board[i] != null)
+		if (i > 0 && i < board.length && board[i] != null) {
 		board[i] = null;
+		} else {
+			System.out.println("There is no figure at position: " + i);
+		}
 	}
-	public void print () {
+	public double print () {
 		double area = 0.0;
 		System.out.println("Figures on board:");
 		for (int i = 0; i < board.length;i++) {
@@ -43,6 +46,7 @@ public class Board {
 			
 		}
 		System.out.println("The area of all this figures is: " + area);
+		return area;
 		
 	}
 }
